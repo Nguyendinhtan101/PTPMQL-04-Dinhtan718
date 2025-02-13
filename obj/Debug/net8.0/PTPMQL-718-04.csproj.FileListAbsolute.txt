@@ -1,0 +1,14 @@
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/bin/Debug/net8.0/PTPMQL-718-04
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/bin/Debug/net8.0/PTPMQL-718-04.deps.json
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/bin/Debug/net8.0/PTPMQL-718-04.runtimeconfig.json
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/bin/Debug/net8.0/PTPMQL-718-04.dll
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/bin/Debug/net8.0/PTPMQL-718-04.pdb
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/obj/Debug/net8.0/PTPMQL-718-04.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/obj/Debug/net8.0/PTPMQL-718-04.AssemblyInfoInputs.cache
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/obj/Debug/net8.0/PTPMQL-718-04.AssemblyInfo.cs
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/obj/Debug/net8.0/PTPMQL-718-04.csproj.CoreCompileInputs.cache
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/obj/Debug/net8.0/PTPMQL-718-04.dll
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/obj/Debug/net8.0/refint/PTPMQL-718-04.dll
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/obj/Debug/net8.0/PTPMQL-718-04.pdb
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/obj/Debug/net8.0/PTPMQL-718-04.genruntimeconfig.cache
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/obj/Debug/net8.0/ref/PTPMQL-718-04.dll

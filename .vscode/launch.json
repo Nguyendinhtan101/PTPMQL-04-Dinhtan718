@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Css",
+      "program": "/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Css/build/Debug/outDebug"
+    }
+  ]
+}
