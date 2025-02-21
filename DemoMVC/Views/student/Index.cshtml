@@ -1,0 +1,26 @@
+
+@{
+    ViewBag.Title = "Student Index";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>@Html.ActionLink("Add New Student", "Add")</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

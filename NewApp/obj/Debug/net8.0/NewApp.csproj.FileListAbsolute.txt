@@ -1,0 +1,15 @@
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/bin/Debug/net8.0/NewApp
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/bin/Debug/net8.0/NewApp.deps.json
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/bin/Debug/net8.0/NewApp.runtimeconfig.json
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/bin/Debug/net8.0/NewApp.dll
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/bin/Debug/net8.0/NewApp.pdb
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/obj/Debug/net8.0/NewApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/obj/Debug/net8.0/NewApp.AssemblyInfoInputs.cache
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/obj/Debug/net8.0/NewApp.AssemblyInfo.cs
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/obj/Debug/net8.0/NewApp.csproj.CoreCompileInputs.cache
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/obj/Debug/net8.0/NewApp.sourcelink.json
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/obj/Debug/net8.0/NewApp.dll
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/obj/Debug/net8.0/refint/NewApp.dll
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/obj/Debug/net8.0/NewApp.pdb
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/obj/Debug/net8.0/NewApp.genruntimeconfig.cache
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/NewApp/obj/Debug/net8.0/ref/NewApp.dll
