@@ -46,12 +46,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSW52b2ljZS9pbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/DemoMVC/Views/Person/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVyc29uL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/DemoMVC/Views/Person/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVyc29uL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/DemoMVC/Views/Person/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVyc29uL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/nguyendinhtan/Downloads/PTPMQL-718-04/DemoMVC/Views/Person/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVyc29uL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/DemoMVC/Views/Person/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVyc29uL1ByaXZhY3kuY3NodG1s
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/DemoMVC/Views/Person/update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVyc29uL3VwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/nguyendinhtan/Downloads/PTPMQL-718-04/DemoMVC/Views/Shared/Error.cshtml]
