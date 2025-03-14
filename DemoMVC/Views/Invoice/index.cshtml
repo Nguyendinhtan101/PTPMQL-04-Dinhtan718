@@ -1,0 +1,33 @@
+
+@model BAITAP2102.Models.InvoiceModel
+
+@{
+    ViewData["Title"] = "Tính tiền hóa đơn";
+}
+
+<h2>Tính tiền hóa đơn</h2>
+
+<form asp-action="Calculate" method="post">
+    <div>
+        <label for="Quantity">Số lượng:</label>
+        <input asp-for="Quantity" type="number" required />
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="UnitPrice">Đơn giá (VNĐ):</label>
+        <input asp-for="UnitPrice" type="number" step="1000" required />
+        <span asp-validation-for="UnitPrice" class="text-danger"></span>
+    </div>
+
+    <button type="submit">Tính tiền</button>
+</form>
+
+@if (ViewBag.Result != null)
+{
+    <h3>@ViewBag.Result</h3>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
