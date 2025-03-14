@@ -1,0 +1,39 @@
+
+@model BAITAP2102.Models.GradeModel
+
+@{
+    ViewData["Title"] = "Tính điểm tổng kết";
+}
+
+<h2>Tính điểm môn học</h2>
+
+<form asp-action="Calculate" method="post">
+    <div>
+        <label for="ScoreA">Điểm A:</label>
+        <input asp-for="ScoreA" type="number" step="0.1" required />
+        <span asp-validation-for="ScoreA" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="ScoreB">Điểm B:</label>
+        <input asp-for="ScoreB" type="number" step="0.1" required />
+        <span asp-validation-for="ScoreB" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="ScoreC">Điểm C:</label>
+        <input asp-for="ScoreC" type="number" step="0.1" required />
+        <span asp-validation-for="ScoreC" class="text-danger"></span>
+    </div>
+
+    <button type="submit">Tính điểm</button>
+</form>
+
+@if (ViewBag.Result != null)
+{
+    <h3>@ViewBag.Result</h3>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
