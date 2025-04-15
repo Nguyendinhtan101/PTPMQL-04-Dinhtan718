@@ -11,8 +11,8 @@ public class Person
     [Key]
     public string? PersonId{ get; set; }
     public string? Fullname{ get;set; }  
-    public string? Address{ get;set; }  
+    public string? Address{ get;set; }
+    public string? Gender{ get;set; }
+    
 }
-    
-    
 }

@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace MvcMovie.Models;
 
 public class Daily
 {
+    [Key]
     public string? MaDaiLy{ get; set; }
     public string? TenDaiLy{ get;set; }
      public string? DiaChi{ get;set; }

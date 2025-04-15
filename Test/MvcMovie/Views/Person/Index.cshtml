@@ -1,4 +1,4 @@
-@model IEnumerable<MVCmoive.Models.Peson>
+@model IEnumerable<MvcMovie.Models.Person>
 
 @{
     ViewData["Title"]="Index";
@@ -11,10 +11,10 @@
 <thead>
 <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FullName)
+            @Html.DisplayNameFor(model => model.Fullname)
         </th>
         <th>
-            @@Html.DisplayNameFor(model => model.Address)
+            @Html.DisplayNameFor(model => model.Address)
         </th>
         <th></th>
 <tr>   
@@ -23,10 +23,10 @@
 @foreach (var item in Model){
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => iteam.FullName)
+            @Html.DisplayFor(modelItem => item.Fullname)
          </td>   
        <td>
-          @Html.DisplayFor(modelItem => iteam.Address)     
+          @Html.DisplayFor(modelItem => item.Address)     
          </td> 
          <td>
             <a asp-action="Edit" asp-route-id="@item.PersonId">Edit</a>
@@ -37,15 +37,3 @@
 }
 </tbody>
 </table>
-
-
-
-<form asp-actinon="Index" method="Post">
-<label> Nhập PersonId :</label>
-<input type="text" name="PersonId">
-<label> nhập họ tên :</label>
-<input type="text" name="FullName">
-<button type="sudmit" value="gửi dữ liệu">gủi </button>
-
-
-</form>
