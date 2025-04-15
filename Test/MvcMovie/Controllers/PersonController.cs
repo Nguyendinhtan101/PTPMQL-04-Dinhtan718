@@ -21,7 +21,7 @@ namespace MvcMovie.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var model = await _context.Person.TolistAsync();
+            var model = await _context.Person.ToListAsync();
             return View(model);
         }
         public IActionResult Create()
@@ -34,15 +34,15 @@ namespace MvcMovie.Controllers
         [ValidateAntiForgeryToken]
 
 
-      public async Task<IActionResult> Create([Bind("Name,FullName,Address")]Person person)
+      public async Task<IActionResult> Create([Bind("PersonId,Fullname,Address")]Person person)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(personClass);
+                _context.Add(person);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(personClass);
+            return View(person);
         }
 
         // GET: Person/Edit/5
@@ -53,7 +53,7 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var personClass = await _context.People.FindAsync(id);
+            var personClass = await _context.Person.FindAsync(id);
             if (personClass == null)
             {
                 return NotFound();
@@ -68,7 +68,7 @@ namespace MvcMovie.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Name,FullName,Address")]Person person)
         {
-            if (id != personClass.Name)
+            if (id != person.Fullname)
             {
                 return NotFound();
             }
@@ -77,12 +77,12 @@ namespace MvcMovie.Controllers
             {
                 try
                 {
-                    _context.Update(personClass);
+                    _context.Update(person);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PersonClassExists(personClass.Name))
+                    if (!PersonClassExists(person.Fullname))
                     {
                         return NotFound();
                     }
@@ -93,7 +93,7 @@ namespace MvcMovie.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(personClass);
+            return View(person);
         }
 
         // GET: Person/Delete/5
@@ -104,8 +104,8 @@ namespace MvcMovie.Controllers
                 return NotFound();
             }
 
-            var personClass = await _context.People
-                .FirstOrDefaultAsync(m => m.Name == id);
+            var personClass = await _context.Person
+                .FirstOrDefaultAsync(m => m.PersonId == id);
             if (personClass == null)
             {
                 return NotFound();
@@ -119,10 +119,10 @@ namespace MvcMovie.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var personClass = await _context.People.FindAsync(id);
+            var personClass = await _context.Person.FindAsync(id);
             if (personClass != null)
             {
-                _context.People.Remove(personClass);
+                _context.Person.Remove(personClass);
             }
 
             await _context.SaveChangesAsync();
@@ -131,7 +131,7 @@ namespace MvcMovie.Controllers
 
         private bool PersonClassExists(string id)
         {
-            return _context.People.Any(e => e.Name == id);
+            return _context.Person.Any(e => e.PersonId == id);
         }
     }
 }
