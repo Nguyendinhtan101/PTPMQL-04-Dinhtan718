@@ -1,0 +1,51 @@
+@model IEnumerable<MVCmoive.Models.Peson>
+
+@{
+    ViewData["Title"]="Index";
+}
+<h1>Index</h1>
+<P>
+<a asp-action="Create" >Create new </a>
+<p>
+<Table class="table">
+<thead>
+<tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @@Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+<tr>   
+</thead>
+<tbody>
+@foreach (var item in Model){
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => iteam.FullName)
+         </td>   
+       <td>
+          @Html.DisplayFor(modelItem => iteam.Address)     
+         </td> 
+         <td>
+            <a asp-action="Edit" asp-route-id="@item.PersonId">Edit</a>
+            <a asp-asp-action="Delete" asp-route-id="@item.PersonId">Edit</a>
+         </td>
+         </tr>
+
+}
+</tbody>
+</table>
+
+
+
+<form asp-actinon="Index" method="Post">
+<label> Nhập PersonId :</label>
+<input type="text" name="PersonId">
+<label> nhập họ tên :</label>
+<input type="text" name="FullName">
+<button type="sudmit" value="gửi dữ liệu">gủi </button>
+
+
+</form>
