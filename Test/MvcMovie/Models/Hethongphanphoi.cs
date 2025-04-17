@@ -1,14 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-
-namespace MvcMovie.Models;
-
-public class Hethongphanphoi
+namespace MvcMovie.Models
 {
-    [Key]
-    public string? MaHTPP{ get; set; }
-    public string? TenHTPP{ get;set; }
-    
-
-    
-    
+    public class Hethongphanphoi
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        // Thêm các thuộc tính cần thiết khác
+    }
 }

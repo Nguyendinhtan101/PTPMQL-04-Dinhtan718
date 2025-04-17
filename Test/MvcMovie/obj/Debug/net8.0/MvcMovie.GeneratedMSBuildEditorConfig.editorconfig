@@ -26,6 +26,42 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Daily/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFpbHkvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Daily/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFpbHkvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Daily/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFpbHkvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Daily/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFpbHkvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Daily/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFpbHkvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Employee/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRW1wbG95ZWUvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Employee/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRW1wbG95ZWUvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Employee/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRW1wbG95ZWUvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Employee/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRW1wbG95ZWUvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Employee/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRW1wbG95ZWUvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

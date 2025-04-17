@@ -1,20 +1,30 @@
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
-var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<ApplicationDbContext>(options => 
-options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")
- ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")));
+using OfficeOpenXml; // nhớ dùng EPPlus
+using Microsoft.Extensions.DependencyInjection;
+using MvcMovie;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<DataApplicationDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DataApplicationDbContext") ?? throw new InvalidOperationException("Connection string 'DataApplicationDbContext' not found.")));
+
+// Cấu hình DbContext
+builder.Services.AddDbContext<ApplicationDbContext>(options => 
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")
+        ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.")));
+
+// Thêm dòng này để cấu hình Authorization
+builder.Services.AddAuthorization();
+
+// Thêm các dịch vụ MVC
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Pipeline xử lý HTTP
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -23,8 +33,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Cho phép sử dụng Authorization
 app.UseAuthorization();
 
+// Route mặc định
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
