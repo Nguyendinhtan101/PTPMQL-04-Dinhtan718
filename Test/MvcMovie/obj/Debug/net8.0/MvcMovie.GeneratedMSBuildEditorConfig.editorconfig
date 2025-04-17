@@ -70,6 +70,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGVsbG9Xb3JsZC9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Hethongphanphoi/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGV0aG9uZ3BoYW5waG9pL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Hethongphanphoi/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGV0aG9uZ3BoYW5waG9pL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Hethongphanphoi/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGV0aG9uZ3BoYW5waG9pL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Hethongphanphoi/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGV0aG9uZ3BoYW5waG9pL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Hethongphanphoi/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGV0aG9uZ3BoYW5waG9pL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/nguyendinhtan/Downloads/PTPMQL-718-04/Test/MvcMovie/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

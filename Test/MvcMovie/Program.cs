@@ -5,8 +5,8 @@ using Microsoft.Extensions.DependencyInjection;
 using MvcMovie;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<DataApplicationDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DataApplicationDbContext") ?? throw new InvalidOperationException("Connection string 'DataApplicationDbContext' not found.")));
+// builder.Services.AddDbContext<DataApplicationDbContext>(options =>
+//     options.UseSqlite(builder.Configuration.GetConnectionString("DataApplicationDbContext") ?? throw new InvalidOperationException("Connection string 'DataApplicationDbContext' not found.")));
 
 // Cấu hình DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options => 

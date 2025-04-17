@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie;
 using MvcMovie.Models;
+using MvcMovie.Data;
 
 namespace MvcMovie.Controllers
 {
     public class DailyController : Controller
     {
-        private readonly DataApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public DailyController(DataApplicationDbContext context)
+        public DailyController(ApplicationDbContext context)
         {
             _context = context;
         }

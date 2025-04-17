@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie;
 using MvcMovie.Models;
+using MvcMovie.Data;
 
 namespace MvcMovie.Controllers
 {
     public class HethongphanphoiController : Controller
     {
-        private readonly DataApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public HethongphanphoiController(DataApplicationDbContext context)
+        public HethongphanphoiController(ApplicationDbContext context)
         {
             _context = context;
         }

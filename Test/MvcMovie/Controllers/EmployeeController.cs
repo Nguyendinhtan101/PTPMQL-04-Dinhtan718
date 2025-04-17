@@ -44,8 +44,10 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Employee/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var per = await _context.Person.ToListAsync();
+            ViewBag.PersonId = new SelectList(per, "PersonId", "PersonId");
             return View();
         }
 
