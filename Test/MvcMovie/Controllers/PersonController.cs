@@ -3,6 +3,7 @@ using System.Text.Encodings.Web;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 using MvcMovie.Models;
+// using MvcMovie.Moderls.Process 
 
 
 namespace MvcMovie.Controllers
@@ -11,6 +12,7 @@ namespace MvcMovie.Controllers
 
     { 
         private readonly ApplicationDbContext _context;
+        //private ExcelProcess _excelProcess = new ExcelProcess();
 
 
         public PersonController(ApplicationDbContext context)
@@ -18,6 +20,7 @@ namespace MvcMovie.Controllers
             _context = context;
 
         }
+    
 
         public async Task<IActionResult> Index()
         {
@@ -34,7 +37,7 @@ namespace MvcMovie.Controllers
         [ValidateAntiForgeryToken]
 
 
-      public async Task<IActionResult> Create([Bind("PersonId,Fullname,Address")]Person person)
+      public async Task<IActionResult> Create([Bind("PersonId,Fullname,Address,Gender")]Person person)
         {
             if (ModelState.IsValid)
             {
@@ -48,30 +51,38 @@ namespace MvcMovie.Controllers
         // GET: Person/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null)
+            if (id == null || _context.Person == null)
             {
                 return NotFound();
             }
 
-            var personClass = await _context.Person.FindAsync(id);
-            if (personClass == null)
+            var person = await _context.Person.FindAsync(id);
+            if (person == null)
             {
                 return NotFound();
             }
-            return View(personClass);
+            return View(person);
         }
 
         // POST: Person/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
+         private bool PersonExists(string id)
+         {
+             return _context.Person.Any(e => e.PersonId == id);
+         }
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Name,FullName,Address")]Person person)
+        public async Task<IActionResult> Edit(string id, [Bind("PersonId,Fullname,Address,Gender")]Person person)
         {
-            if (id != person.Fullname)
+            if (id != person.PersonId)
             {
                 return NotFound();
+
             }
+
 
             if (ModelState.IsValid)
             {
@@ -82,7 +93,9 @@ namespace MvcMovie.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PersonClassExists(person.Fullname))
+                    
+                    
+                    if (!PersonExists(person.PersonId))
                     {
                         return NotFound();
                     }
@@ -90,6 +103,7 @@ namespace MvcMovie.Controllers
                     {
                         throw;
                     }
+                    
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -98,20 +112,21 @@ namespace MvcMovie.Controllers
 
         // GET: Person/Delete/5
         public async Task<IActionResult> Delete(string id)
+
         {
-            if (id == null)
+            if (id == null || _context.Person == null)
             {
                 return NotFound();
             }
 
-            var personClass = await _context.Person
+            var person = await _context.Person
                 .FirstOrDefaultAsync(m => m.PersonId == id);
-            if (personClass == null)
+            if (person == null)
             {
                 return NotFound();
             }
 
-            return View(personClass);
+            return View(person);
         }
 
         // POST: Person/Delete/5
@@ -119,19 +134,36 @@ namespace MvcMovie.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var personClass = await _context.Person.FindAsync(id);
-            if (personClass != null)
+            if (_context.Person ==null)
+         {  
+           return Problem ("Entity set 'ApplicationDbContext.Person' is null.");
+         } 
+        
+            var person = await _context.Person.FindAsync(id);
+            if (person != null)
             {
-                _context.Person.Remove(personClass);
+                _context.Person.Remove(person);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        
         }
-
+        
         private bool PersonClassExists(string id)
-        {
-            return _context.Person.Any(e => e.PersonId == id);
-        }
+          {
+            return (_context.Person?.Any(e => e.PersonId == id)).GetValueOrDefault();
+
+          
+          }
+             // POST: Person/UPload
+        //   public async Task<IActionResult>Upload()
+        //   {
+        //     return view();
+        //   }
+        //   [HttpPost]
+        //   [ValidateAntiForgeryToken]
+          
+
+       }
     }
-}
