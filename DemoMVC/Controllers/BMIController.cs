@@ -1,8 +1,8 @@
 
 using Microsoft.AspNetCore.Mvc;
-using BAITAP2102.Models;
+using DemoMVC.Models;
 
-namespace BAITAP2102.Controllers
+namespace DemoMVC.Controllers
 {
     public class BMIController : Controller
     {

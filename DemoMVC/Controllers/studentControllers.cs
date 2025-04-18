@@ -1,9 +1,9 @@
 
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using FirstWebMVC.Models;
+using DemoMVC.Models;
 
-namespace FirstWebMVC.Controllers;
+namespace DemoMVC.Controllers;
 
     public class StudentController : Controller
     {

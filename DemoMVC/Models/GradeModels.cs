@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace BAITAP2102.Models
+namespace DemoMvc.Models
 {
     public class GradeModel
     {

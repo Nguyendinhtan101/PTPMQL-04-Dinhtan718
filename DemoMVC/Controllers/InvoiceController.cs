@@ -1,8 +1,8 @@
 
-using BAITAP2102.Models;
+using DemoMvc.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BAITAP2102.Controllers
+namespace DemoMvc.Controllers
 {
     public class InvoiceController : Controller
     {

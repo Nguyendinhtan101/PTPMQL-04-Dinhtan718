@@ -1,6 +1,6 @@
 using System;
 
-namespace BAITAP2102.Models
+namespace DemoMvc.Models
 {
     public class BMIModel
     {

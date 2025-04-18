@@ -1,8 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
-using MvcMovie.Models; // Thêm using directive này
+using DemoMvc.Models; // Thêm using directive này
 
-namespace MvcMovie.Data
+namespace DemoMvc.Data
 {
     public class ApplicationDbContext : DbContext
     {

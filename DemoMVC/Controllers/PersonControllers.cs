@@ -1,10 +1,10 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MvcMovie.Data;
-using MvcMovie.Models;
+using DemoMvc.Data;
+using DemoMvc.Models;
 
-namespace MvcMovie.Controllers
+namespace DemoMvc.Controllers
 {
     public class PersonController : Controller
     {
