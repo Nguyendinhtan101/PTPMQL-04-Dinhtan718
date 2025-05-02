@@ -4,6 +4,9 @@ using OfficeOpenXml; // nhớ dùng EPPlus
 using Microsoft.Extensions.DependencyInjection;
 using MvcMovie;
 using  MvcMovie.Models ;
+using Microsoft.AspNetCore.Identity;
+//using VicemMVCIdentity.Data;
+//using VicemMVCIdentity.Data;
 var builder = WebApplication.CreateBuilder(args);
 // builder.Services.AddDbContext<DataApplicationDbContext>(options =>
 //     options.UseSqlite(builder.Configuration.GetConnectionString("DataApplicationDbContext") ?? throw new InvalidOperationException("Connection string 'DataApplicationDbContext' not found.")));
@@ -22,6 +25,7 @@ builder.Services.AddAuthorization();
 
 // Thêm các dịch vụ MVC
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -34,6 +38,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.MapRazorPages();
 
 app.UseRouting();
 app.UseAuthentication();
@@ -43,6 +48,6 @@ app.UseAuthorization();
 // Route mặc định
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Login}/{id?}");
 
 app.Run();
