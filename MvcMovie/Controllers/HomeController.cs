@@ -16,7 +16,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         return View();
-        return Redirect("/Identity/Account/Login");
+        //return Redirect("/Identity/Account/Login");
         
     }
     [HttpPost]
@@ -32,8 +32,8 @@ public class HomeController : Controller
 
     public IActionResult Privacy()
     {
-        //return View();
-        return Redirect("/Identity/Account/Login");
+        return View();
+        //return Redirect("/Identity/Account/Login");
     }
 
 

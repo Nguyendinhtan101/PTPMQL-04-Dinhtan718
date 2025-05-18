@@ -168,7 +168,7 @@ namespace MvcMovie.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Fullname")
+                    b.Property<string>("FullName")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("LockoutEnabled")
@@ -241,6 +241,70 @@ namespace MvcMovie.Migrations
                     b.ToTable("Daily");
                 });
 
+            modelBuilder.Entity("MvcMovie.Models.Employee", b =>
+                {
+                    b.Property<int>("EmployeeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("HireDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("firstName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("EmployeeId");
+
+                    b.ToTable("Employees", (string)null);
+                });
+
+            modelBuilder.Entity("MvcMovie.Models.Entities.MemberUnits", b =>
+                {
+                    b.Property<int>("MenberUnitId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("WebsiteUrl")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("MenberUnitId");
+
+                    b.ToTable("MemberUnits");
+                });
+
             modelBuilder.Entity("MvcMovie.Models.Hethongphanphoi", b =>
                 {
                     b.Property<string>("Id")
@@ -275,24 +339,6 @@ namespace MvcMovie.Migrations
                     b.HasKey("PersonId");
 
                     b.ToTable("Persons", (string)null);
-
-                    b.UseTptMappingStrategy();
-                });
-
-            modelBuilder.Entity("MvcMovie.Models.Employee", b =>
-                {
-                    b.HasBaseType("MvcMovie.Models.Person");
-
-                    b.Property<string>("Age")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Department")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("EmployeeID")
-                        .HasColumnType("TEXT");
-
-                    b.ToTable("Employees", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -342,15 +388,6 @@ namespace MvcMovie.Migrations
                     b.HasOne("MvcMovie.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MvcMovie.Models.Employee", b =>
-                {
-                    b.HasOne("MvcMovie.Models.Person", null)
-                        .WithOne()
-                        .HasForeignKey("MvcMovie.Models.Employee", "PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

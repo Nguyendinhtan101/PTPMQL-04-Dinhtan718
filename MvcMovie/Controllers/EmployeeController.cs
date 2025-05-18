@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
+// File: Controllers/EmployeeController.cs
+using Microsoft.AspNetCore.Mvc;
+using MvcMovie.Models;
+using MvcMovie.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MvcMovie.Data;
-using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
 {
@@ -26,37 +24,28 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Employee/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.PersonId == id);
+            var employee = await _context.Employee.FirstOrDefaultAsync(m => m.EmployeeId == id);
             if (employee == null)
-            {
                 return NotFound();
-            }
 
             return View(employee);
         }
 
         // GET: Employee/Create
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
-            var per = await _context.Person.ToListAsync();
-            ViewBag.PersonId = new SelectList(per, "PersonId", "PersonId");
             return View();
         }
 
         // POST: Employee/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeID,Age,Department,PersonId,Fullname,Address,Gender,Email")] Employee employee)
+        public async Task<IActionResult> Create([Bind("EmployeeId,firstName,LastName,Address,DateOfBirth,Position,Email,HireDate")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -68,32 +57,25 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Employee/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var employee = await _context.Employee.FindAsync(id);
             if (employee == null)
-            {
                 return NotFound();
-            }
+
             return View(employee);
         }
 
         // POST: Employee/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("EmployeeID,Age,Department,PersonId,Fullname,Address,Gender,Email")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("EmployeeId,firstName,LastName,Address,DateOfBirth,Position,Email,HireDate")] Employee employee)
         {
-            if (id != employee.PersonId)
-            {
+            if (id != employee.EmployeeId)
                 return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
@@ -104,14 +86,10 @@ namespace MvcMovie.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EmployeeExists(employee.PersonId))
-                    {
+                    if (!EmployeeExists(employee.EmployeeId))
                         return NotFound();
-                    }
                     else
-                    {
                         throw;
-                    }
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -119,19 +97,14 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Employee/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.PersonId == id);
+            var employee = await _context.Employee.FirstOrDefaultAsync(m => m.EmployeeId == id);
             if (employee == null)
-            {
                 return NotFound();
-            }
 
             return View(employee);
         }
@@ -139,21 +112,17 @@ namespace MvcMovie.Controllers
         // POST: Employee/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var employee = await _context.Employee.FindAsync(id);
-            if (employee != null)
-            {
-                _context.Employee.Remove(employee);
-            }
-
+            _context.Employee.Remove(employee);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EmployeeExists(string id)
+        private bool EmployeeExists(int id)
         {
-            return _context.Employee.Any(e => e.PersonId == id);
+            return _context.Employee.Any(e => e.EmployeeId == id);
         }
     }
 }
