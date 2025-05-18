@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using MvcMovie.Models.Process;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOptions();
         var mailSettings = builder.Configuration.GetSection("MailSettings");
@@ -68,16 +69,14 @@ builder.Services.AddAuthorization();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
-
-
 builder.Services.AddTransient<EmployeeSeeder>();
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
-    var Services = scope.ServiceProvider;
-    var seeder = Services.GetRequiredService<EmployeeSeeder>();
-    seeder.SeendEmployees(1000);
- }
+    var services = scope.ServiceProvider;
+    var seeder = services.GetRequiredService<EmployeeSeeder>();
+    seeder.SeedEmployees(1000);
+}
 
 // Pipeline xử lý HTTP
     if (!app.Environment.IsDevelopment())
