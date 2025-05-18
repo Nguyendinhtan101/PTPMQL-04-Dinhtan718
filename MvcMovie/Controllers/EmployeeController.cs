@@ -1,4 +1,5 @@
 // File: Controllers/EmployeeController.cs
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MvcMovie.Models;
 using MvcMovie.Data;
@@ -8,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MvcMovie.Controllers
 {
+    [Authorize]
     public class EmployeeController : Controller
     {
         private readonly ApplicationDbContext _context;
