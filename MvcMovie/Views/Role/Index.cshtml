@@ -1,0 +1,32 @@
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+
+<h2>Danh sách Role</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Tạo mới Role</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên Role</th>
+            <th>Normalized Name</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model)
+        {
+            <tr>
+                <td>@role.Name</td>
+                <td>@role.NormalizedName</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@role.Id" class="btn btn-primary">Sửa</a>
+                    <form asp-action="Delete" asp-route-id="@role.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Xoá</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

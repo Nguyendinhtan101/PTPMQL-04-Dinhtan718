@@ -8,9 +8,12 @@
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/MvcMovie.pdb
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Azure.Core.dll
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Azure.Identity.dll
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Bogus.dll
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/BouncyCastle.Cryptography.dll
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/EPPlus.dll
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/EPPlus.Interfaces.dll
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Humanizer.dll
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/MailKit.dll
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.UI.dll
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Microsoft.AspNetCore.Razor.Language.dll
@@ -70,6 +73,7 @@
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+/Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/MimeKit.dll
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Mono.TextTemplating.dll
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Newtonsoft.Json.dll
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/NuGet.Common.dll
@@ -314,7 +318,3 @@
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/obj/Debug/net8.0/MvcMovie.pdb
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/obj/Debug/net8.0/MvcMovie.genruntimeconfig.cache
 /Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/obj/Debug/net8.0/ref/MvcMovie.dll
-/Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/BouncyCastle.Cryptography.dll
-/Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/MailKit.dll
-/Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/MimeKit.dll
-/Users/nguyendinhtan/Downloads/PTPMQL-718-04/MvcMovie/bin/Debug/net8.0/Bogus.dll

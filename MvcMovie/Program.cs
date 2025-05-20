@@ -12,6 +12,7 @@ using MvcMovie.Models.Process;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOptions();
         var mailSettings = builder.Configuration.GetSection("MailSettings");
@@ -57,8 +58,8 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 // Cấu hình DbContext
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+// builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//     .AddEntityFrameworkStores<ApplicationDbContext>();
 //builder.Services.AddControllersWithViews();
 
 
@@ -68,6 +69,9 @@ builder.Services.AddAuthorization();
 // Thêm các dịch vụ MVC
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+     .AddEntityFrameworkStores<ApplicationDbContext>();
+//     //.AddDefaultTokenProviders();dotnet clean
 
 builder.Services.AddTransient<EmployeeSeeder>();
 var app = builder.Build();
@@ -98,5 +102,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+    
 
 app.Run();
