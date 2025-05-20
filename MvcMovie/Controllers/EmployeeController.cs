@@ -51,6 +51,7 @@ namespace MvcMovie.Controllers
         // POST: Employee/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         [Authorize(Roles = "admin")]
         public async Task<IActionResult> Create([Bind("EmployeeId,firstName,LastName,Address,DateOfBirth,Position,Email,HireDate")] Employee employee)
          

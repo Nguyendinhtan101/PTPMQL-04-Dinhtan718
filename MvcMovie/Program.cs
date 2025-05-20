@@ -69,6 +69,11 @@ builder.Services.AddAuthorization();
 
 // Thêm các dịch vụ MVC
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Role", policy => policy.RequireClaim("Role", "AdminOnly"));
+    options.AddPolicy("Permission", policy => policy.RequireClaim("Role", "EmployeeOnly"));
+});
 builder.Services.AddRazorPages();
 // builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 //      .AddEntityFrameworkStores<ApplicationDbContext>();

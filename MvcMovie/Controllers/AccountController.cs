@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Identity;
 using MvcMovie.Models.Entities;
 using MvcMovie.Models;
 using MvcMovie.Models.ViewModels;
+using System.Security.Claims;
+
 
 namespace MvcMovie.Controllers
 {
@@ -96,6 +98,27 @@ namespace MvcMovie.Controllers
             }
 
             return View(model);
+
         }
+        public async Task<IActionResult> AddClaim(string userId)
+    { 
+       var user = await _userManager.FindByIdAsync(userId);
+       var userClaims = await _userManager.GetClaimsAsync(user);
+       var model = new UserClaimVM(userId, user.UserName, userClaims.ToList());
+       return View(model);
+   }
+
+      [HttpPost]
+          public async Task<IActionResult> AddClaim(string userId, string claimType, string claimValue)
+     {
+        var user = await _userManager.FindByIdAsync(userId);
+        var result = await _userManager.AddClaimAsync(user, new Claim(claimType, claimValue));
+        if (result.Succeeded)
+    {
+        return RedirectToAction("AddClaim", new { userId });
+    }
+    return View();
+     }
+
     }
 }
