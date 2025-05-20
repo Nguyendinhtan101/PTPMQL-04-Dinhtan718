@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MvcMovie;
 using  MvcMovie.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;    
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Models.Process;
@@ -58,8 +58,9 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.SlidingExpiration = true;
 });
 // Cấu hình DbContext
-// builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-//     .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+   .AddRoles<IdentityRole>()
+   .AddEntityFrameworkStores<ApplicationDbContext>();
 //builder.Services.AddControllersWithViews();
 
 
@@ -69,11 +70,17 @@ builder.Services.AddAuthorization();
 // Thêm các dịch vụ MVC
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-     .AddEntityFrameworkStores<ApplicationDbContext>();
+// builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+//      .AddEntityFrameworkStores<ApplicationDbContext>();
 //     //.AddDefaultTokenProviders();dotnet clean
 
 builder.Services.AddTransient<EmployeeSeeder>();
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = $"/Identity/Account/Login";
+    options.LogoutPath = $"/Identity/Account/Logout";
+    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+});
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {

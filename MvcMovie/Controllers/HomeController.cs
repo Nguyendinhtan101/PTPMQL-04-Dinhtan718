@@ -35,6 +35,11 @@ public class HomeController : Controller
         return View();
         //return Redirect("/Identity/Account/Login");
     }
+    public IActionResult TestRole()
+{
+    var isEmployee = User.IsInRole("Employee");
+    return Content($"Is Employee? {isEmployee}");
+}
 
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

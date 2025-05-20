@@ -20,13 +20,17 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Employee
+        [Authorize(Roles = "Employee")]
         public async Task<IActionResult> Index()
+
         {
             return View(await _context.Employee.ToListAsync());
         }
 
         // GET: Employee/Details/5
+         [Authorize(Roles = "admin")]
         public async Task<IActionResult> Details(int? id)
+        
         {
             if (id == null)
                 return NotFound();
@@ -47,7 +51,9 @@ namespace MvcMovie.Controllers
         // POST: Employee/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Create([Bind("EmployeeId,firstName,LastName,Address,DateOfBirth,Position,Email,HireDate")] Employee employee)
+         
         {
             if (ModelState.IsValid)
             {
