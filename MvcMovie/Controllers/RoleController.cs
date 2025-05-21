@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-
+using MvcMovie.Models.ViewModels;
+using System.Security.Claims;
+using MvcMovie.Models.Constants;
 namespace MvcMovie.Controllers
+
 {
     public class RoleController : Controller
     {
@@ -82,13 +85,74 @@ public async Task<IActionResult> Create(string roleName)
     return View();
 }
 
-        
 
-[HttpGet]
-public IActionResult Create()
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        public async Task<IActionResult> AssignClaim(string id)
+        {
+            var role = await _roleManager.FindByIdAsync(id);
+            if (role == null)
+            {
+                return BadRequest();
+            }
+
+var allPermissions = SystemPermissions.AllPermissions;            var roleClaims = await _roleManager.GetClaimsAsync(role);
+            if (roleClaims == null)
+            {
+                roleClaims = new List<Claim>();
+            }
+
+            var model = new RoleClaimVM
+            {
+                RoleId = role.Id,
+                RoleName = role.Name,
+                Claims = allPermissions.Select(p => new RoleClaim
+                {
+                    Type = "Permission",
+                    Value = p,
+                    Selected = roleClaims.Any(c => c.Type == "Permission" && c.Value == p)
+                }).ToList()
+            };
+
+            return View(model);
+        }
+[HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<IActionResult> AssignClaim(RoleClaimVM model)
 {
-    return View();
-}
+    if (!ModelState.IsValid)
+    {
+        return View(model);
+    }
 
+    var role = await _roleManager.FindByIdAsync(model.RoleId);
+    if (role == null)
+    {
+        return BadRequest();
+    }
+
+    var claims = await _roleManager.GetClaimsAsync(role);
+    if (claims == null)
+    {
+        claims = new List<Claim>();
+    }
+
+    foreach (var claim in claims.Where(c => c.Type == "Permission"))
+    {
+        await _roleManager.RemoveClaimAsync(role, claim);
+    }
+
+    foreach (var claim in model.Claims.Where(c => c.Selected))
+    {
+        await _roleManager.AddClaimAsync(role, new Claim(claim.Type, claim.Value));
+    }
+
+    return RedirectToAction(nameof(Index));
+}
+    
     }
 }

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Models.Process;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Authorization;
 
 
 
@@ -73,7 +74,13 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("Role", policy => policy.RequireClaim("Role", "AdminOnly"));
     options.AddPolicy("Permission", policy => policy.RequireClaim("Role", "EmployeeOnly"));
+    options.AddPolicy("PolicyADMIN", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("PolicyEMPLOYEE", policy => policy.RequireRole("Employee"));
+    options.AddPolicy("PolicyByPhoneNumber", policy => policy.Requirements.Add(new PolicyByPhoneNumberRequirement()));
+
+
 });
+builder.Services.AddSingleton<IAuthorizationHandler, PolicyByPhoneNumberHandler>();
 builder.Services.AddRazorPages();
 // builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 //      .AddEntityFrameworkStores<ApplicationDbContext>();
