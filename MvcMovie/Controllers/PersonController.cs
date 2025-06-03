@@ -4,6 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using MvcMovie.Data;
 using MvcMovie.Models;
 using MvcMovie.Models.Process;
+using X.PagedList;
+using OfficeOpenXml;
+using Microsoft.AspNetCore.Mvc.Rendering;
+//using X.PagedList.Async;
 
 
 namespace MvcMovie.Controllers
@@ -20,13 +24,37 @@ namespace MvcMovie.Controllers
             _context = context;
 
         }
-    
 
-        public async Task<IActionResult> Index()
-        {
-            var model = await _context.Person.ToListAsync();
-            return View(model);
-        }
+
+
+ public async Task<IActionResult> Index(int? page, int? PageSize)
+{
+    // Tạo danh sách lựa chọn số lượng bản ghi mỗi trang
+    ViewBag.PageSize = new List<SelectListItem>()
+    {
+        new SelectListItem() { Value = "3", Text = "3" },
+        new SelectListItem() { Value = "5", Text = "5" },
+        new SelectListItem() { Value = "10", Text = "10" },
+        new SelectListItem() { Value = "15", Text = "15" },
+        new SelectListItem() { Value = "25", Text = "25" },
+        new SelectListItem() { Value = "50", Text = "50" },
+    };
+
+    // Nếu không có PageSize thì mặc định là 5
+    int pageSize = PageSize ?? 5;
+    int pageNumber = page ?? 1;
+
+    ViewBag.psize = pageSize;
+
+    // Truy vấn có phân trang trực tiếp từ database
+    var model = await _context.Person
+        .OrderBy(p => p.PersonId)
+        .ToPagedListAsync(pageNumber, pageSize);
+
+    return View(model);
+}
+
+
         public IActionResult Create()
         {
             return View();
@@ -161,6 +189,7 @@ namespace MvcMovie.Controllers
           {
             return View();
           }
+
           [HttpPost]
           [ValidateAntiForgeryToken]
           public async Task<IActionResult> Upload(IFormFile file)
